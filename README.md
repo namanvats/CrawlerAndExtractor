@@ -1,7 +1,9 @@
 # Amazon Crawler and Extractor
 
 ## Description
-    This Crawler and Extractor service takes an input amazon URL or SKU (Unique Identifier of product) and crawls that page to extract some attributes. It has features to show product details, price trends and all the products crawled upto a particular time (timestamp) as well.
+```
+This Crawler and Extractor service takes an input amazon URL or SKU (Unique Identifier of product) and crawls that page to extract some attributes. It has features to show product details, price trends and all the products crawled upto a particular time (timestamp) as well.
+```
 
 ---
 
@@ -11,30 +13,32 @@
     1. To Install Java: [Java Installation Guide ](https://java.com/en/download/help/download_options.html "Java Installation Guide")
 
     2. To Install MySQL: [MySQL Installation Guide](https://dev.mysql.com/doc/index-cluster.html "MySQL Setup")
+        ```
+        MySQL Setup in Linux (Ubuntu/Debian Based) System:
 
-            MySQL Setup in Linux (Ubuntu/Debian Based) System:
+        sudo apt update
+        sudo apt install mysql-server 
+        sudo mysql_secure_installation
 
-            sudo apt update
-            sudo apt install mysql-server 
-            sudo mysql_secure_installation
+        # Now Follow Instructions on Terminal
 
-            # Now Follow Instructions on Terminal
+        # To Create New User:
 
-            # To Create New User:
+        sudo mysql
+        CREATE USER username@'localhost' IDENTIFIED BY 'password';
+        GRANT ALL PRIVILEGES ON *. * TO user_name@'localhost';
 
-            sudo mysql
-            CREATE USER username@'localhost' IDENTIFIED BY 'password';
-            GRANT ALL PRIVILEGES ON *. * TO user_name@'localhost';
+        ```
 
+    3. Login using the **Username** and **Password** created while setting up the MySQL and then create a new database named **product** . The username and password are the ones which we created while installing MySQL in Step 2
+        ```
+        MySQL Login and Database Create Command :
 
-    3. Login using the **Username** and **Password** created while setting up the MySQL and then create a new database named **product** 
-    <br>
-        > The username and password are the ones which we created while installing MySQL in Step 2
-
-            mysql -u username –p
-            create database product;
-            use product;
-<br>
+        mysql -u username –p
+        create database product;
+        use product;
+        
+        ```
 
 * Clone this Repository
 
@@ -42,27 +46,20 @@
 
 * To run the Application:
 
-    1. Go to the root directory of the project and type the following command in the terminal:
+    1. Go to the root directory of the project and type the following command in the terminal:<br>
+    `mvn install`<br>
+    `mvn spring-boot:run`
 
-            mvn install
-
-            mvn spring-boot:run
-    
     **The server will run on port 8080**
 
 ---
-
 ## System Design
-<br>
 
 ![System Design](Design.png)
-
-<br>
 
 ---
 
 ## Database Schema
-<br>
 
 * **Table 1: products**
 
@@ -96,11 +93,7 @@
 
 - [POSTMAN API COLLECTIONS](https://www.postman.com/collections/a9f6344b5ac2d02bd280 "API Collections")
 
-<br>
-
 ---
-<br>
-
 ## Features
 - This service can fetch product details using URL or SKUID
 
@@ -111,8 +104,6 @@
 - Response time is present in the logs
 
 - Scheduled crawling in status table
-
-<br>
 
 ---
 
@@ -262,7 +253,7 @@ curl --location --request GET 'http://localhost:8080/getProductDetailsBT?skuId=B
 ```
 <br>
 
-### 5. GET Price Trend Using SKUID(/getPriceTrend )
+### 5. GET Price Trend Using SKUID (/getPriceTrend )
 #### Request :
 ```
 curl --location --request GET 'http://localhost:8080/getPriceTrend?skuId=B07XMLWH7J'
@@ -291,7 +282,5 @@ curl --location --request GET 'http://localhost:8080/getPriceTrend?skuId=B07XMLW
     ]
 }
 ```
-
-<br>
 
 ---
