@@ -1,9 +1,8 @@
 # Amazon Crawler and Extractor
 
 ## Description
-```
-This Crawler and Extractor service takes an input amazon URL or SKU (Unique Identifier of product) and crawls that page to extract some attributes. It has features to show product details, price trends and all the products crawled upto a particular time (timestamp) as well.
-```
+
+This Crawler and Extractor service takes an input amazon URL or SKU (Unique Identifier of product) and crawls that page to extract some attributes. <p>It has features to show product details, price trends and all the products crawled upto a particular time (timestamp) as well.
 
 ---
 
@@ -110,8 +109,6 @@ This Crawler and Extractor service takes an input amazon URL or SKU (Unique Iden
 ## API ENDPOINTS
 #### ( Read Documentation for better Understanding )
 
-<br>
-
 ### 1. GET HTML ( /gethtml )
 #### Request :
 ```
@@ -150,7 +147,7 @@ curl --location --request GET 'http://localhost:8080/getProductDetails?skuId=B07
 ```
 <br>
 
-### 3. GET ALL Products ( /getAllProducts)
+### 3. GET All Products ( /getAllProducts)
 #### Request :
 ```
 curl --location --request GET 'http://localhost:8080/getAllProducts'
